@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OOO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            height: 80vh;
+            width: 100vw;
+        }
+
+        .loading_circle {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 50vmin;
+            height: 50vmin;
+
+            border-radius: 100%;
+            
+            background-image: linear-gradient(red,yellow,green);
+
+            animation: load 5s linear infinite;
+        }
+
+        .loading_plate {
+            width: 40vmin;
+            height: 40vmin;
+
+            border-radius: 100%;
+
+            background-color: white;
+        }
+
+        @keyframes load {
+
+            from {
+                transform: rotate(0deg)
+            }
+
+            to{
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="loading_circle">
+            <div class="loading_plate"></div>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    
+    setInterval(() => {
+        
+        if(navigator.onLine) {    
+            if(ping()){
+                history.back()
+            }
+        }
+            
+    },1000)
+
+    async function ping() {
+        
+        let response = await fetch("https://www.google.com")
+
+        if(response.ok){
+            return true
+        }else{
+            return false
+        }
+
+    }
+
+</script>
+
+</html>

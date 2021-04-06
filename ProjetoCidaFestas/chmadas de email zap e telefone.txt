@@ -1,0 +1,141 @@
+ private void openGmail() {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("mailto:" + getResources().getString(R.string.emailId) + "?subject=" + getResources().getString(R.string.app_name) + " feedback"));
+            startActivity(Intent.createChooser(intent, "E_mail"));
+        } catch (ActivityNotFoundException e) {
+            //TODO smth
+        }
+
+    }
+
+    private void call() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + getResources().getString(R.string.contactNo)));
+        startActivity(intent);
+    }
+    public void openWhatsApp(){
+        try {
+
+            String toNumber = "5531995430219"; // Replace with mobile phone number without +Sign or leading zeros.
+
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+toNumber +"&text="));
+            startActivity(intent);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+public void sendMail(String recepientString, String subject, String body) {
+      Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+      sendIntent.setData(Uri.parse("mailto:"));
+      sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{recepientString});
+      sendIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+      sendIntent.putExtra(Intent.EXTRA_TEXT, body);
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+      //Check that an app exists to receive the intent
+      if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+        this.reactContext.startActivity(sendIntent);
+      }
+    }
+
+
+
+public void openEmailApp() {
+      Intent sendIntent = new Intent(Intent.ACTION_MAIN);
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      sendIntent.addCategory(Intent.CATEGORY_APP_EMAIL);
+      if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+          this.reactContext.startActivity(sendIntent);
+      }
+    }
+
+
+ public void openAllEmailApp() {
+
+        List<Intent> emailAppLauncherIntents = new ArrayList<>();
+
+        //Intent that only email apps can handle:
+        Intent emailAppIntent = new Intent(Intent.ACTION_SENDTO);
+        emailAppIntent.setData(Uri.parse("mailto:"));
+        emailAppIntent.putExtra(Intent.EXTRA_EMAIL, "");
+        emailAppIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+
+        PackageManager packageManager = this.reactContext.getPackageManager();
+
+        //All installed apps that can handle email intent:
+        List<ResolveInfo> emailApps = packageManager.queryIntentActivities(emailAppIntent, PackageManager.MATCH_DEFAULT_ONLY);
+
+        for (ResolveInfo resolveInfo : emailApps) {
+            String packageName = resolveInfo.activityInfo.packageName;
+            Intent launchIntent = packageManager.getLaunchIntentForPackage(packageName);
+            emailAppLauncherIntents.add(launchIntent);
+        }
+
+        //Create chooser
+        Intent chooserIntent = Intent.createChooser(new Intent(), "Select your Inbox");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, emailAppLauncherIntents.toArray(new Parcelable[emailAppLauncherIntents.size()]));
+
+        Activity currentActivity = getCurrentActivity();
+        currentActivity.startActivity(chooserIntent);
+    }
+
+ public void sendMail(String recepientString, String subject, String body) {
+      Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+      sendIntent.setData(Uri.parse("mailto:"));
+      sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{recepientString});
+      sendIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+      sendIntent.putExtra(Intent.EXTRA_TEXT, body);
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+      //Check that an app exists to receive the intent
+      if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+        this.reactContext.startActivity(sendIntent);
+      }
+    }
+
+
+
+ public void sendSms(String phoneNumberString, String body) {
+      Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phoneNumberString.trim()));
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+      if (body != null) {
+        sendIntent.putExtra("sms_body", body);
+      }
+
+
+
+      //Check that an app exists to receive the intent
+      if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+        this.reactContext.startActivity(sendIntent);
+      }
+    }
+
+
+public void sendPhoneDial(String phoneNumberString, Boolean phoneAppOnly) {
+      Intent sendIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumberString.trim()));
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      if (phoneAppOnly) {
+          sendIntent.setPackage("com.android.server.telecom");
+      }
+
+      //Check that an app exists to receive the intent
+      if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+        this.reactContext.startActivity(sendIntent);
+      }
+    }

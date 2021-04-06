@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Cida Festas</string>
+
+    <string name="modelo">Descrição</string>
+    <string name="cavalos">Cavalos</string>
+    <string name="valor">Valor</string>
+    <string name="ver_detalhes">Ver Detalhes</string>
+    <string name="fabricante">fabricante</string>
+    <string name="ip">https://giulrdeveloper.com/Buffet</string>
+
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="sobre">Somos uma empresa dedicada a criação de eventos e festas dede 2015.\n
+        Nossa especialização é transformar seus sonhos em realidade!\n
+        Permita-nos surpreende-los com nossos serviços! </string>
+
+    <string name="title_activity_imagem_ampliada_bitmap">ImagemAmpliadaBitmap</string>
+    <string name="emailId">cidajlfestas@gmail.com</string>
+    <string name="contactNo">031987020851</string>
+    <string name="contate_nos">
+        *Tirar dúvidas.\n
+           *Solicitar orçamentos.\n
+        *Dar sugestões.\n\n
+
+        Horário de atendimento: \n
+
+        Segunda a sexta de 8 ás 17:00hs.
+
+
+    </string>
+
+    <string name="aniversario">
+        .4 horas de duração.\n
+        .Buffet Adulto (Salgados servidos a vontade).\n
+        .Bufett Infantil (Suco de uva,Agua ,Refrigerantes,\n
+        Batata frita ,pão de queijo, nuggets de frango,
+        Pipoca e picolé.\n
+        .Lembrancinhas para crianças até 12 anos de idade
+        presentes na festa.\n
+        .Decoração com cenario e balões.\n
+        .Almoço:Arroz ,1 carne vermelha ,1 carne branca
+        e 2 qualidades de massa e molhos.\n\n
+        Obs:Cerveja opcional.
+
+
+    </string>
+
+
+</resources>

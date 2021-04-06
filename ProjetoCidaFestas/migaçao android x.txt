@@ -1,0 +1,11 @@
+migrando para android x mudam para 
+
+androidx.cardview.widget.CardView
+
+androidx.recyclerview.widget.RecyclerView
+
+androidx.constraintlayout.widget.ConstraintLayout
+
+androidx.coordinatorlayout.widget.CoordinatorLayout
+
+com.google.android.material.floatingactionbutton.FloatingActionButton

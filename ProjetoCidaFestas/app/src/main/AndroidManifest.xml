@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cidafestas">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_festas"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/s"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activitys.PoliticaPrivacidade"></activity>
+        <activity android:name=".activitys.ActivityAgenda" />
+        <activity android:name=".activitys.GaleriaAlomocoFamiliar" />
+        <activity android:name=".activitys.GaleriaBatizado" />
+        <activity android:name=".activitys.GaleriaFestaFormatura" />
+        <activity android:name=".activitys.GaleriaFestaInfantil" />
+        <activity android:name=".activitys.GaleriaFestasCorporativas" />
+        <activity android:name=".activitys.GaleriaAniversario" />
+        <activity android:name=".activitys.GaleriaEventosCasamentos" />
+        <activity android:name=".activitys.ActivityDetails" />
+        <activity android:name=".activitys.ImagemAmpliadaBitmap" />
+        <activity
+            android:name=".activitys.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activitys.ImagemAmpliada" />
+        <activity android:name=".activitys.ActivitySobre" />
+        <activity android:name=".activitys.ActivityOrcamentos" />
+        <activity android:name=".activitys.ActivityContatos" />
+        <activity android:name=".activitys.SemInternet" />
+        <activity android:name=".activitys.ActivityFotos" />
+        <activity android:name=".activitys.FotosCardapioMysql" />
+        <activity android:name=".activitys.ActivityFotosEventos" />
+        <activity android:name=".activitys.ActivitySite" />
+        <activity android:name=".activitys.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

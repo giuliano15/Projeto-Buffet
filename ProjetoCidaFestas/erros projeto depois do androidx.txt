@@ -1,0 +1,3 @@
+Ao converter para android x 
+Swipe refresh nao deixando carregar webview 
+Ainda falta consertar activity imagem ampliada da chamada dos cards da tela descrção dentro da tela cardapios.
